@@ -29,4 +29,11 @@ public class EmailValidationTest {
         String result = validation.validate(new User("", "XenXorXgmail.com"));
         assertEquals(MyString.emailPatternError, result);
     }
+
+    @Test
+    public void อีเมลไม่มีโดเมน() {
+        ValidationRule validation = new EmailPatternValidation();
+        String result = validation.validate(new User("", "XenXorX@"));
+        assertEquals(MyString.emailPatternError, result);
+    }
 }
