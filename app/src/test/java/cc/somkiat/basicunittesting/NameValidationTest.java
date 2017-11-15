@@ -13,4 +13,11 @@ public class NameValidationTest {
         String result = validation.validate(new User("", ""));
         assertEquals("ไม่ผ่าน เพราะ username ว่าเป็นค่าว่าง!", result);
     }
+
+    @Test
+    public void ชื่อไม่เป็นค่าว่าง() {
+        ValidationRules validation = new ValidationRules();
+        String result = validation.validate(new User("XenXorX", ""));
+        assertEquals("สำเร็จ!", result);
+    }
 }
