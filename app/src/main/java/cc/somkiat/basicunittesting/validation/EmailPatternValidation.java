@@ -6,7 +6,7 @@ import cc.somkiat.basicunittesting.model.MyString;
 import cc.somkiat.basicunittesting.model.User;
 
 public class EmailPatternValidation extends ValidationRule {
-    private String emailPattern = "^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\\\.[A-Za-z0-9]+)*(\\\\.[A-Za-z]{2,})$";
+    private String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
     @Override
     public String validate(User user) {
