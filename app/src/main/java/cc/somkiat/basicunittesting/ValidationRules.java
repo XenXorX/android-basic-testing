@@ -20,7 +20,7 @@ public class ValidationRules {
     }
 
     public String validate(User user) {
-        String result = "";
+        String result = MyString.success;
 
         for (ValidationRule rule : rules) {
             String message = rule.validate(user);
