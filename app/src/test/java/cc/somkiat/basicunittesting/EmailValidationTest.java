@@ -15,4 +15,11 @@ public class EmailValidationTest {
         String result = validation.validate(new User("", ""));
         assertEquals(MyString.emptyEmailError, result);
     }
+
+    @Test
+    public void อีเมลไม่เป็นค่าว่าง() {
+        ValidationRule validation = new EmptyEmailValidation();
+        String result = validation.validate(new User("", "XenXorX@gmail.com"));
+        assertEquals(MyString.success, result);
+    }
 }
