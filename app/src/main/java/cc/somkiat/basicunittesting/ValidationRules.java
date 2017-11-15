@@ -15,6 +15,7 @@ public class ValidationRules {
         rules.add(new EmptyNameValidation());
         rules.add(new NameLengthValidation());
         rules.add(new SpecialNameValidation());
+        rules.add(new EmptyEmailValidation());
     }
 
     public String validate(User user) {
