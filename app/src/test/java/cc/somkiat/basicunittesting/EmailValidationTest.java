@@ -43,4 +43,11 @@ public class EmailValidationTest {
         String result = validation.validate(new User("", "XenXorX@gmailcom"));
         assertEquals(MyString.emailPatternError, result);
     }
+
+    @Test
+    public void อีเมลมีแอดมากกว่าหนึ่งตัว() {
+        ValidationRule validation = new EmailPatternValidation();
+        String result = validation.validate(new User("", "Xen@XorX@gmailcom"));
+        assertEquals(MyString.emailPatternError, result);
+    }
 }
