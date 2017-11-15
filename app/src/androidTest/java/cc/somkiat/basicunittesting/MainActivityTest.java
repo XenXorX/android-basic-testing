@@ -57,4 +57,13 @@ public class MainActivityTest {
         onView(withId(R.id.emailInput)).perform(scrollTo(), replaceText("XenXorX@gmail.com"));
         onView(withId(R.id.saveButton)).perform(scrollTo(), click());
     }
+
+    @Test
+    public void saveWrongEmail() {
+        closeSoftKeyboard();
+        onView(withId(R.id.revertButton)).perform(scrollTo(), click());
+        onView(withId(R.id.userNameInput)).perform(scrollTo() ,replaceText("XenXorX"));
+        onView(withId(R.id.emailInput)).perform(scrollTo(), replaceText("XenXorXgmailcom"));
+        onView(withId(R.id.saveButton)).perform(scrollTo(), click());
+     }
 }
