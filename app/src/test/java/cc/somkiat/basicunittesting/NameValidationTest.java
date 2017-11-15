@@ -45,9 +45,16 @@ public class NameValidationTest {
     }
 
     @Test
-    public void ชื่อสยี่สิบัวอักษร() {
+    public void ชื่อยี่สิบตัวอักษร() {
         ValidationRule validation = new NameLengthValidation();
         String result = validation.validate(new User("XenXorXXenXorXXenXor", ""));
+        assertEquals(MyString.success, result);
+    }
+
+    @Test
+    public void ชื่อสิบตัวอักษร() {
+        ValidationRule validation = new NameLengthValidation();
+        String result = validation.validate(new User("XenXorXXen", ""));
         assertEquals(MyString.success, result);
     }
 }
