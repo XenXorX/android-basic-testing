@@ -85,4 +85,11 @@ public class NameValidationTest {
         String result = validation.validate(new User("Englishภาษาไทย", ""));
         assertEquals(MyString.specialNameError, result);
     }
+
+    @Test
+    public void ชื่อภาษาไทยและอังกฤษ() {
+        ValidationRule validation = new SpecialNameValidation();
+        String result = validation.validate(new User("ภาษาไทยEnglish", ""));
+        assertEquals(MyString.specialNameError, result);
+    }
 }
