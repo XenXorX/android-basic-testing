@@ -71,4 +71,11 @@ public class NameValidationTest {
         String result = validation.validate(new User("XenXorXXenXorXXe", ""));
         assertEquals(MyString.success, result);
     }
+
+    @Test
+    public void ชื่อภาษาไทย() {
+        ValidationRule validation = new SpecialNameValidation();
+        String result = validation.validate(new User("ภาษาไทย", ""));
+        assertEquals(MyString.specialNameError, result);
+    }
 }
