@@ -36,4 +36,13 @@ public class NameValidationTest {
         String result = validation.validate(new User("XenXorXXenXorXXenXorX", ""));
         assertEquals(MyString.nameLengthError, result);
     }
+
+    @Test
+    public void ชื่อสองตัวอักษร() {
+        ValidationRule validation = new NameLengthValidation();
+        String result = validation.validate(new User("Xe", ""));
+        assertEquals(MyString.success, result);
+    }
+
+
 }
