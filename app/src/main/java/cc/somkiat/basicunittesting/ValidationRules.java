@@ -2,9 +2,9 @@ package cc.somkiat.basicunittesting;
 
 import java.util.ArrayList;
 
+import cc.somkiat.basicunittesting.model.MyString;
 import cc.somkiat.basicunittesting.model.User;
-import cc.somkiat.basicunittesting.validation.EmptyValidation;
-import cc.somkiat.basicunittesting.validation.ValidationRule;
+import cc.somkiat.basicunittesting.validation.*;
 
 public class ValidationRules {
     ArrayList<ValidationRule> rules;
@@ -12,7 +12,8 @@ public class ValidationRules {
     public ValidationRules() {
         rules = new ArrayList<>();
 
-        rules.add(new EmptyValidation());
+        rules.add(new EmptyNameValidation());
+        rules.add(new NameLengthValidation());
     }
 
     public String validate(User user) {
@@ -20,7 +21,7 @@ public class ValidationRules {
 
         for (ValidationRule rule : rules) {
             String message = rule.validate(user);
-            if (message != "สำเร็จ") {
+            if (message != MyString.success) {
                 result = message;
                 break;
             }
