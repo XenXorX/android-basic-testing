@@ -4,28 +4,36 @@ import org.junit.Test;
 
 import cc.somkiat.basicunittesting.model.MyString;
 import cc.somkiat.basicunittesting.model.User;
+import cc.somkiat.basicunittesting.validation.*;
 
 import static org.junit.Assert.*;
 
 public class NameValidationTest {
     @Test
     public void ชื่อเป็นค่าว่าง() {
-        ValidationRules validation = new ValidationRules();
+        ValidationRule validation = new EmptyNameValidation();
         String result = validation.validate(new User("", ""));
         assertEquals(MyString.emptyNameError, result);
     }
 
     @Test
     public void ชื่อไม่เป็นค่าว่าง() {
-        ValidationRules validation = new ValidationRules();
+        ValidationRule validation = new EmptyNameValidation();
         String result = validation.validate(new User("XenXorX", ""));
         assertEquals(MyString.success, result);
     }
 
     @Test
     public void ชื่อน้อยกว่าสองตัวอักษร() {
-        ValidationRules validation = new ValidationRules();
+        ValidationRule validation = new NameLengthValidation();
         String result = validation.validate(new User("X", ""));
+        assertEquals(MyString.nameLengthError, result);
+    }
+
+    @Test
+    public void ชื่อมากกว่ายี่สิบตัวอักษร() {
+        ValidationRule validation = new NameLengthValidation();
+        String result = validation.validate(new User("XenXorXXenXorXXenXorX", ""));
         assertEquals(MyString.nameLengthError, result);
     }
 }
