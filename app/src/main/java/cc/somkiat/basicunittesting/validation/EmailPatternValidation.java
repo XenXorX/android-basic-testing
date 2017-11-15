@@ -10,7 +10,7 @@ public class EmailPatternValidation extends ValidationRule {
 
     @Override
     public String validate(User user) {
-        if(!Pattern.matches(emailPattern, user.getUserName())){
+        if(!Pattern.matches(emailPattern, user.getEmail())) {
             result = MyString.emailPatternError;
         }
         return result;
