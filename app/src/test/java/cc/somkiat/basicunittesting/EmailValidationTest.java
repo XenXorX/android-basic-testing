@@ -50,4 +50,11 @@ public class EmailValidationTest {
         String result = validation.validate(new User("", "Xen@XorX@gmailcom"));
         assertEquals(MyString.emailPatternError, result);
     }
+
+    @Test
+    public void อีเมลมีตัวเลข() {
+        ValidationRule validation = new EmailPatternValidation();
+        String result = validation.validate(new User("", "XenXorX1234@gmailcom"));
+        assertEquals(MyString.emailPatternError, result);
+    }
 }
