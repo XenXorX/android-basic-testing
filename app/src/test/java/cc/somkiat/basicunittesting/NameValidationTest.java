@@ -44,5 +44,10 @@ public class NameValidationTest {
         assertEquals(MyString.success, result);
     }
 
-
+    @Test
+    public void ชื่อสยี่สิบัวอักษร() {
+        ValidationRule validation = new NameLengthValidation();
+        String result = validation.validate(new User("XenXorXXenXorXXenXor", ""));
+        assertEquals(MyString.success, result);
+    }
 }
