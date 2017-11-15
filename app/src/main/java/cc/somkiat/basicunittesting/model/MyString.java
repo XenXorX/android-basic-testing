@@ -6,4 +6,5 @@ public class MyString {
     public static String nameLengthError = "ไม่ผ่าน เพราะ username น้อยกว่า 2 หรือ มากว่า 20 ตัวอักษร!";
     public static String specialNameError = "ไม่ผ่าน เพราะ username ต้องเป็นภาษาอังกฤษเท่านั้น";
     public static String emptyEmailError = "ไม่ผ่าน เพราะ email เป็นค่าว่าง!";
+    public static String emailPatternError = "ไม่ผ่าน เพราะ ไม่เป็นไปตามรูปแบบของ email!";
 }

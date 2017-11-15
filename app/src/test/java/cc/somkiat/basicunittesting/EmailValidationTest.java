@@ -22,4 +22,11 @@ public class EmailValidationTest {
         String result = validation.validate(new User("", "XenXorX@gmail.com"));
         assertEquals(MyString.success, result);
     }
+
+    @Test
+    public void อีเมลไม่มีแอด() {
+        ValidationRule validation = new EmailPatternValidation();
+        String result = validation.validate(new User("", "XenXorXgmail.com"));
+        assertEquals(MyString.emailPatternError, result);
+    }
 }
