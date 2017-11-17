@@ -1,15 +1,16 @@
 package cc.somkiat.basicunittesting.validation;
 
-import cc.somkiat.basicunittesting.model.MyString;
 import cc.somkiat.basicunittesting.model.User;
 
-public class EmptyEmailValidation extends ValidationRule {
+public class EmptyEmailValidation implements ValidationRule {
 
     @Override
-    public String validate(User user) {
-        if (user.getEmail() == null || user.getEmail().isEmpty()) {
-            result = MyString.emptyEmailError;
-        }
-        return result;
+    public boolean validate(User user) {
+        return user.getEmail() == null || user.getEmail().isEmpty();
+    }
+
+    @Override
+    public String getErrorMessage() {
+        return "ไม่ผ่าน เพราะ email เป็นค่าว่าง!";
     }
 }

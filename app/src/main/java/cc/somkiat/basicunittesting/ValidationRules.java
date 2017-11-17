@@ -2,12 +2,13 @@ package cc.somkiat.basicunittesting;
 
 import java.util.ArrayList;
 
-import cc.somkiat.basicunittesting.model.MyString;
 import cc.somkiat.basicunittesting.model.User;
 import cc.somkiat.basicunittesting.validation.*;
 
 public class ValidationRules {
-    ArrayList<ValidationRule> rules;
+    public static final String success = "สำเร็จ!";
+
+    private ArrayList<ValidationRule> rules;
 
     public ValidationRules() {
         rules = new ArrayList<>();
@@ -20,16 +21,11 @@ public class ValidationRules {
     }
 
     public String validate(User user) {
-        String result = MyString.success;
-
         for (ValidationRule rule : rules) {
-            String message = rule.validate(user);
-            if (message != MyString.success) {
-                result = message;
-                break;
+            if (rule.validate(user)) {
+                return rule.getErrorMessage();
             }
         }
-
-        return result;
+        return success;
     }
 }
